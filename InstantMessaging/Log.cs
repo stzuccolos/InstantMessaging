@@ -11,6 +11,6 @@ namespace InstantMessaging
     {
         internal static void Error(string v) => throw new NotImplementedException();
 
-        internal static void Error(string v, ConnectionException e) => throw new NotImplementedException();
+        internal static void Error(string v, Exception e) => throw new NotImplementedException();
     }
 }

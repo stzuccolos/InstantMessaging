@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InstantMessaging.MessagingClients;
+using System;
 using System.Runtime.Serialization;
 
 namespace InstantMessaging.Exceptions
@@ -13,8 +14,15 @@ namespace InstantMessaging.Exceptions
         {
         }
 
+        public UndefinedClientException(InstantMessagingClients messagingClient)
+        {
+            MessagingClient = messagingClient;
+        }
+
         public UndefinedClientException(string? message, Exception? innerException) : base(message, innerException)
         {
         }
+
+        public InstantMessagingClients MessagingClient { get; }
     }
 }

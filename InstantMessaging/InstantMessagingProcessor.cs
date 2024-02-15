@@ -11,7 +11,17 @@ namespace InstantMessaging
         public InstantMessagingProcessor(UserCredintials userCredintials,
                                          InstantMessagingClients messagingClient)
         {
-            this.messagingClient = InstantMessagingClientFactory.Create(messagingClient, userCredintials);
+
+            try
+            {
+                this.messagingClient = InstantMessagingClientFactory.Create(messagingClient, userCredintials);
+
+            }
+            catch (UndefinedClientException e)
+            {
+                Log.Error($"Undefined messaging client requested: {e.MessagingClient}", e);
+                throw;
+            }
         }
 
         public Task SendMessage(string to, string message)

@@ -10,7 +10,7 @@ namespace InstantMessaging.MessagingClients
             {
                 InstantMessagingClients.Skype => new SkypeMessagingClient(userCredintials),
                 InstantMessagingClients.Viber => new ViberMessagingClient(userCredintials),
-                _ => throw new UndefinedClientException(),
+                _ => throw new UndefinedClientException(messagingClient),
             };
         }
     }
